@@ -38,16 +38,15 @@ def audience_simple(country):
 
 @st.cache_data
 def load_data():
-    folder = r""
     metrics_by_video = "Aggregated_Metrics_By_Video.csv"
     metrics_by_country_sub = "Aggregated_Metrics_By_Country_And_Subscriber_Status.csv"
-    comments_data = "All_Comments_final.csv"
+    comments_data = "All_Comments_Final.csv"
     perf_over_time = "Video_Performance_Over_Time.csv"
     # load data
-    df_agg = pd.read_csv(os.path.join(folder, metrics_by_video)).iloc[1:,:]  #except first row (header)
-    df_agg_sub = pd.read_csv(os.path.join(folder, metrics_by_country_sub))
-    df_comments = pd.read_csv(os.path.join(folder, comments_data))
-    df_time = pd.read_csv(os.path.join(folder, perf_over_time))
+    df_agg = pd.read_csv(metrics_by_video).iloc[1:,:]  #except first row (header)
+    df_agg_sub = pd.read_csv(metrics_by_country_sub)
+    df_comments = pd.read_csv(comments_data)
+    df_time = pd.read_csv(perf_over_time)
 
     #some feature engineering
     # renaming columns (ascii issues, that could be dealt wiht more systematically)
